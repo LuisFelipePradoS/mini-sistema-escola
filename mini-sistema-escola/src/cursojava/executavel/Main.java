@@ -17,8 +17,31 @@ public class Main {
 		
 		if (user.equals("admin") && password.equals("admin")) {
 			
-			//Códigos das rotinas
+			HashMap<String, List<Aluno>> maps = new HashMap<String, List<Aluno>>();
 			
+			List<Aluno> alunos = new ArrayList<Aluno>();
+			
+			int qtdAlunos = Integer.parseInt(JOptionPane.showInputDialog("Quantos alunos serão adicionados à lista?"));
+			
+			for (int i=1; i<=qtdAlunos; i++) {
+				
+				String nome = JOptionPane.showInputDialog("Informe o nome do aluno " + i);
+				String idade = JOptionPane.showInputDialog("Informe a idade do aluno " + i);
+				String cpf = JOptionPane.showInputDialog("Informe o CPF do aluno " + i);
+				String rg = JOptionPane.showInputDialog("Informe o RG do aluno " + i);
+				String endereco = JOptionPane.showInputDialog("Informe o endereço do aluno " + i);
+				String telefone = JOptionPane.showInputDialog("Informe o telefone do aluno " + i);
+				
+				Aluno aluno = new Aluno();
+				
+				aluno.setNome(nome);
+				aluno.setIdade(Integer.parseInt(idade));
+				aluno.setCpf(cpf);
+				aluno.setRg(rg);
+				aluno.setEndereco(endereco);
+				aluno.setTelefone(telefone);
+				
+			}
 		} else {
 			
 			JOptionPane.showMessageDialog(null, "Usuário ou Senha incorretos!");
