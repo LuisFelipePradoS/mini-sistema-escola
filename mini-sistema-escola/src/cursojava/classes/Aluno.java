@@ -11,6 +11,7 @@ public class Aluno {
 	private String rg;
 	private String endereco;
 	private String telefone;
+	private List<Disciplina> disciplinas = new ArrayList<Disciplina>();
 	
 	public String getNome() {
 		return nome;
@@ -47,6 +48,14 @@ public class Aluno {
 	}
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
+	}
+	
+	public List<Disciplina> getDisciplinas() {
+		return disciplinas;
+	}
+	
+	public void setDisciplinas(List<Disciplina> disciplinas) {
+		this.disciplinas = disciplinas;
 	}
 	
 	@Override
