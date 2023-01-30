@@ -41,6 +41,22 @@ public class Main {
 				aluno.setEndereco(endereco);
 				aluno.setTelefone(telefone);
 				
+				int qtdDisciplinas = Integer.parseInt(JOptionPane.showInputDialog("Quantas disciplinas o aluno " + i + " possui?"));
+				
+				for (int j=1; j<=qtdDisciplinas; j++) {
+					
+					String nomeDisciplina = JOptionPane.showInputDialog("Informe o nome da disciplina " + j);
+					String notaDisciplina = JOptionPane.showInputDialog("Informe a nota do aluno " + i + " na disciplina " + j);
+					
+					Disciplina disciplina = new Disciplina();
+					
+					disciplina.setNomeDisciplina(nomeDisciplina);
+					disciplina.setNotaDisciplina(Double.parseDouble(notaDisciplina));
+					
+					aluno.getDisciplinas().add(disciplina);
+				}
+				
+				alunos.add(aluno);
 			}
 		} else {
 			
