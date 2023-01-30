@@ -3,6 +3,8 @@ package cursojava.classes;
 import java.util.List;
 import java.util.ArrayList;
 
+import cursojava.constantes.StatusAluno;
+
 public class Aluno {
 
 	private String nome;
@@ -89,9 +91,41 @@ public class Aluno {
 		return true;
 	}
 	
-	//toString() vai aqui
+	@Override
+	public String toString() {
+		return "Aluno [nome=" + nome + ", idade=" + idade + ", cpf=" + cpf + ", rg=" + rg + ", endereco=" + endereco
+				+ ", telefone=" + telefone + ", disciplinas=" + disciplinas + "]";
+	}
 	
-	//calculaMedia() vai aqui
+	public double calculaMedia() {
+		
+		double somaNotas = 0.0;
+		
+		for (Disciplina disciplina : disciplinas) {
+			
+			somaNotas += disciplina.getNotaDisciplina();
+		}
+		
+		//Deixando o calculo da média dinâmico
+		return somaNotas / disciplinas.size();
+	}
 	
-	//resultado() vai aqui
+	public String resultado() {
+		
+		double mediaFinal = this.calculaMedia();
+		
+		if (mediaFinal >= 5.0) {
+			
+			if (mediaFinal >= 7.0) {
+				
+				return StatusAluno.APROVADO;
+			} else {
+				
+				return StatusAluno.RECUPERACAO;
+			}
+		}else {
+			
+			return StatusAluno.REPROVADO;
+		}
+	}
 }
