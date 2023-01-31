@@ -59,6 +59,8 @@ public class Main {
 				alunos.add(aluno);
 			}
 			
+			//Substituir alunos da lista
+			
 			int resposta = JOptionPane.showConfirmDialog(null, "Deseja substituir algum aluno na lista?");
 			
 			if (resposta == 0) {
@@ -116,6 +118,33 @@ public class Main {
 					continuarSubstituir = JOptionPane.showConfirmDialog(null, "Deseja substituir outro aluno?");
 					
 				} while (continuarSubstituir == 0);
+			}
+			
+			//Remover alunos da lista
+			
+			resposta = JOptionPane.showConfirmDialog(null, "Deseja remover algum aluno da lista?");
+			
+			if (resposta == 0) {
+				
+				int continuarRemover = 0;
+				
+				do {
+					
+					String cpfRgRemover = JOptionPane.showInputDialog("Informe o CPF ou RG do aluno a ser removido");
+					
+					for (Aluno aluno : alunos) {
+						
+						if (cpfRgRemover.equals(aluno.getCpf()) | cpfRgRemover.equals(aluno.getRg())) {
+							
+							alunos.remove(aluno);
+							
+							break;
+						}
+					}
+					
+					continuarRemover = JOptionPane.showConfirmDialog(null, "Deseja remover outro aluno da lista?");
+					
+				} while (continuarRemover == 0);
 			}
 			
 		} else {
