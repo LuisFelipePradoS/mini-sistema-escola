@@ -58,6 +58,66 @@ public class Main {
 				
 				alunos.add(aluno);
 			}
+			
+			int resposta = JOptionPane.showConfirmDialog(null, "Deseja substituir algum aluno na lista?");
+			
+			if (resposta == 0) {
+				
+				int continuarSubstituir = 0;
+				
+				do {
+					
+					String cpfRgSubstituir = JOptionPane.showInputDialog("Informe o CPF ou RG do aluno à ser dubstituído");
+					
+					for (int posicaoA=0; posicaoA<alunos.size(); posicaoA++) {
+						
+						Aluno aluno = alunos.get(posicaoA);
+						
+						if (cpfRgSubstituir.equals(aluno.getCpf()) | cpfRgSubstituir.equals(aluno.getRg())) {
+							
+							String nome = JOptionPane.showInputDialog("Informe o nome do novo aluno");
+							String idade = JOptionPane.showInputDialog("Informe a idade do novo aluno");
+							String cpf = JOptionPane.showInputDialog("Informe o CPF do novo aluno");
+							String rg = JOptionPane.showInputDialog("Informe o RG do novo aluno");
+							String endereco = JOptionPane.showInputDialog("Informe o endereco do novo aluno");
+							String telefone = JOptionPane.showInputDialog("Informe o telefone do novo aluno");
+							
+							Aluno novoAluno = new Aluno();
+							
+							novoAluno.setNome(nome);
+							novoAluno.setIdade(Integer.parseInt(idade));
+							novoAluno.setCpf(cpf);
+							novoAluno.setRg(rg);
+							novoAluno.setEndereco(endereco);
+							novoAluno.setTelefone(telefone);
+							
+							int qtdDisciplina = Integer.parseInt(JOptionPane.showInputDialog("Quantas disciplinas o novo aluno possui?"));
+							
+							for (int posicaoD=1; posicaoD<=qtdDisciplina; posicaoD++) {
+								
+								String nomeDisciplina = JOptionPane.showInputDialog("Informe o nome da disciplina " + posicaoD);
+								String notaDisciplina = JOptionPane.showInputDialog("Informe a nota do novo aluno da disciplina " + posicaoD);
+								
+								Disciplina novaDisciplina = new Disciplina();
+								
+								novaDisciplina.setNomeDisciplina(nomeDisciplina);
+								novaDisciplina.setNotaDisciplina(Double.parseDouble(notaDisciplina));
+								
+								novoAluno.getDisciplinas().add(novaDisciplina);
+							}
+							
+							alunos.set(posicaoA, novoAluno);
+							aluno = alunos.get(posicaoA);
+							
+							break;
+						}
+					}
+					
+					continuarSubstituir = JOptionPane.showConfirmDialog(null, "Deseja substituir outro aluno?");
+					
+				} while (continuarSubstituir == 0);
+			}
+			
 		} else {
 			
 			JOptionPane.showMessageDialog(null, "Usuário ou Senha incorretos!");
