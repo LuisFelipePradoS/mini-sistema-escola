@@ -27,8 +27,8 @@ public class Main {
 				
 				String nome = JOptionPane.showInputDialog("Informe o nome do aluno " + i);
 				String idade = JOptionPane.showInputDialog("Informe a idade do aluno " + i);
-				String cpf = JOptionPane.showInputDialog("Informe o CPF do aluno " + i);
-				String rg = JOptionPane.showInputDialog("Informe o RG do aluno " + i);
+				String cpf = JOptionPane.showInputDialog("Informe o CPF do aluno " + i + "\nEsta informação será necessário para SUBSTITUIR ou REMOVER o aluno do sistema!");
+				String rg = JOptionPane.showInputDialog("Informe o RG do aluno " + i + " \nEsta informação será necessário para SUBSTITUIR ou REMOVER o aluno do sistema!");
 				String endereco = JOptionPane.showInputDialog("Informe o endereço do aluno " + i);
 				String telefone = JOptionPane.showInputDialog("Informe o telefone do aluno " + i);
 				
