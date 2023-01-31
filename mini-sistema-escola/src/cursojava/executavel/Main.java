@@ -166,6 +166,30 @@ public class Main {
 				}
 			}
 			
+			System.out.println("----------Aluno aprovados----------");
+			for (Aluno aluno : maps.get(StatusAluno.APROVADO)) {
+				
+				System.out.println(aluno.toString());
+				System.out.println("Média >>> " + aluno.calculaMedia());
+				System.out.println("\n");
+			}
+			
+			System.out.println("----------Alunos em recuperação----------");
+			for (Aluno aluno : maps.get(StatusAluno.RECUPERACAO)) {
+				
+				System.out.println(aluno.toString());
+				System.out.println("Média >>> " + aluno.calculaMedia());
+				System.out.println("\n");
+			}
+			
+			System.out.println("----------Alunos reprovados----------");
+			for (Aluno aluno : maps.get(StatusAluno.REPROVADO)) {
+				
+				System.out.println(aluno.toString());
+				System.out.println("Média >>> " + aluno.calculaMedia());
+				System.out.println("\n");
+			}
+			
 		} else {
 			
 			JOptionPane.showMessageDialog(null, "Usuário ou Senha incorretos!");
