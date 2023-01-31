@@ -147,6 +147,25 @@ public class Main {
 				} while (continuarRemover == 0);
 			}
 			
+			//Separando alunos em listas
+			maps.put(StatusAluno.APROVADO, new ArrayList<Aluno>());
+			maps.put(StatusAluno.RECUPERACAO, new ArrayList<Aluno>());
+			maps.put(StatusAluno.REPROVADO, new ArrayList<Aluno>());
+			
+			for (Aluno aluno : alunos) {
+				
+				if (aluno.resultado().equals(StatusAluno.APROVADO)) {
+					
+					maps.get(StatusAluno.APROVADO).add(aluno);
+				} else if (aluno.resultado().equals(StatusAluno.RECUPERACAO)) {
+					
+					maps.get(StatusAluno.RECUPERACAO).add(aluno);
+				} else {
+					
+					maps.get(StatusAluno.REPROVADO).add(aluno);
+				}
+			}
+			
 		} else {
 			
 			JOptionPane.showMessageDialog(null, "Usuário ou Senha incorretos!");
