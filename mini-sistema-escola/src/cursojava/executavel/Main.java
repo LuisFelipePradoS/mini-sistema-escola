@@ -31,6 +31,9 @@ public class Main {
 				String rg = JOptionPane.showInputDialog("Informe o RG do aluno " + i + " \nEsta informação será necessário para SUBSTITUIR ou REMOVER o aluno do sistema!");
 				String endereco = JOptionPane.showInputDialog("Informe o endereço do aluno " + i);
 				String telefone = JOptionPane.showInputDialog("Informe o telefone do aluno " + i);
+				String raAluno = JOptionPane.showInputDialog("Informe o RA do aluno " + i + "\nEsta informação será necessaprio para SUBSTITUIR ou  REMOVER o aluno no sistema!");
+				String dataMatricula = JOptionPane.showInputDialog("Informe a data na qual o aluno " + i + " foi matriculado");
+				String serieMatriculada = JOptionPane.showInputDialog("Informe a série do aluno " + i);
 				
 				Aluno aluno = new Aluno();
 				
@@ -40,6 +43,9 @@ public class Main {
 				aluno.setRg(rg);
 				aluno.setEndereco(endereco);
 				aluno.setTelefone(telefone);
+				aluno.setRaAluno(raAluno);
+				aluno.setDataMatricula(dataMatricula);
+				aluno.setSerieMatriculada(serieMatriculada);
 				
 				int qtdDisciplinas = Integer.parseInt(JOptionPane.showInputDialog("Quantas disciplinas o aluno " + i + " possui?"));
 				
@@ -69,13 +75,13 @@ public class Main {
 				
 				do {
 					
-					String cpfRgSubstituir = JOptionPane.showInputDialog("Informe o CPF ou RG do aluno à ser dubstituído");
+					String cpfRgRaSubstituir = JOptionPane.showInputDialog("Informe o CPF, RG ou RA do aluno à ser dubstituído");
 					
 					for (int posicaoA=0; posicaoA<alunos.size(); posicaoA++) {
 						
 						Aluno aluno = alunos.get(posicaoA);
 						
-						if (cpfRgSubstituir.equals(aluno.getCpf()) | cpfRgSubstituir.equals(aluno.getRg())) {
+						if (cpfRgRaSubstituir.equals(aluno.getCpf()) | cpfRgRaSubstituir.equals(aluno.getRg()) | cpfRgRaSubstituir.equals(aluno.getRaAluno())) {
 							
 							String nome = JOptionPane.showInputDialog("Informe o nome do novo aluno");
 							String idade = JOptionPane.showInputDialog("Informe a idade do novo aluno");
@@ -130,11 +136,11 @@ public class Main {
 				
 				do {
 					
-					String cpfRgRemover = JOptionPane.showInputDialog("Informe o CPF ou RG do aluno a ser removido");
+					String cpfRgRaRemover = JOptionPane.showInputDialog("Informe o CPF, RG ou RA do aluno a ser removido");
 					
 					for (Aluno aluno : alunos) {
 						
-						if (cpfRgRemover.equals(aluno.getCpf()) | cpfRgRemover.equals(aluno.getRg())) {
+						if (cpfRgRaRemover.equals(aluno.getCpf()) | cpfRgRaRemover.equals(aluno.getRg()) | cpfRgRaRemover.equals(aluno.getRaAluno())) {
 							
 							alunos.remove(aluno);
 							

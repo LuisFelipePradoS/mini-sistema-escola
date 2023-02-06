@@ -5,96 +5,43 @@ import java.util.ArrayList;
 
 import cursojava.constantes.StatusAluno;
 
-public class Aluno {
-
-	private String nome;
-	private int idade;
-	private String cpf;
-	private String rg;
-	private String endereco;
-	private String telefone;
+public class Aluno extends Pessoa{
+	
+	private String raAluno;
+	private String serieMatriculada;
+	private String dataMatricula;
 	private List<Disciplina> disciplinas = new ArrayList<Disciplina>();
 	
-	public String getNome() {
-		return nome;
+	public final String getRaAluno() {
+		return raAluno;
 	}
-	public void setNome(String nome) {
-		this.nome = nome;
+	public final void setRaAluno(String raAluno) {
+		this.raAluno = raAluno;
 	}
-	public int getIdade() {
-		return idade;
+	public final String getSerieMatriculada() {
+		return serieMatriculada;
 	}
-	public void setIdade(int idade) {
-		this.idade = idade;
+	public final void setSerieMatriculada(String serieMatriculada) {
+		this.serieMatriculada = serieMatriculada;
 	}
-	public String getCpf() {
-		return cpf;
+	public final String getDataMatricula() {
+		return dataMatricula;
 	}
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
+	public final void setDataMatricula(String dataMatricula) {
+		this.dataMatricula = dataMatricula;
 	}
-	public String getRg() {
-		return rg;
-	}
-	public void setRg(String rg) {
-		this.rg = rg;
-	}
-	public String getEndereco() {
-		return endereco;
-	}
-	public void setEndereco(String endereco) {
-		this.endereco = endereco;
-	}
-	public String getTelefone() {
-		return telefone;
-	}
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
-	}
-	
 	public List<Disciplina> getDisciplinas() {
 		return disciplinas;
 	}
-	
 	public void setDisciplinas(List<Disciplina> disciplinas) {
 		this.disciplinas = disciplinas;
 	}
-	
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((cpf == null) ? 0 : cpf.hashCode());
-		result = prime * result + ((rg == null) ? 0 : rg.hashCode());
-		return result;
-	}
-	
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Aluno other = (Aluno) obj;
-		if (cpf == null) {
-			if (other.cpf != null)
-				return false;
-		} else if (!cpf.equals(other.cpf))
-			return false;
-		if (rg == null) {
-			if (other.rg != null)
-				return false;
-		} else if (!rg.equals(other.rg))
-			return false;
-		return true;
-	}
-	
+
 	@Override
 	public String toString() {
-		return "Aluno [nome=" + nome + ", idade=" + idade + ", cpf=" + cpf + ", rg=" + rg + ", endereco=" + endereco
-				+ ", telefone=" + telefone + ", disciplinas=" + disciplinas + "]";
+		return "Aluno [raAluno=" + raAluno + ", serieMatriculada=" + serieMatriculada + ", dataMatricula="
+				+ dataMatricula + ", disciplinas=" + disciplinas + ", nome=" + nome + ", idade=" + idade + ", cpf="
+				+ cpf + ", rg=" + rg + ", telefone=" + telefone + ", endereco=" + endereco + "]";
 	}
 	
 	public double calculaMedia() {
@@ -106,7 +53,6 @@ public class Aluno {
 			somaNotas += disciplina.getNotaDisciplina();
 		}
 		
-		//Deixando o calculo da média dinâmico
 		return somaNotas / disciplinas.size();
 	}
 	
@@ -122,10 +68,12 @@ public class Aluno {
 			} else {
 				
 				return StatusAluno.RECUPERACAO;
-			}
-		}else {
+				}
 			
-			return StatusAluno.REPROVADO;
+			} else {
+				
+				return StatusAluno.REPROVADO;
+				
 		}
 	}
 }

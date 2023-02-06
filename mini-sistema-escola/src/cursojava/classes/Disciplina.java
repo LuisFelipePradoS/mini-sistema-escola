@@ -5,19 +5,18 @@ public class Disciplina {
 	private String nomeDisciplina;
 	private double notaDisciplina;
 	
-	public String getNomeDisciplina() {
+	public final String getNomeDisciplina() {
 		return nomeDisciplina;
 	}
-	public void setNomeDisciplina(String nomeDisciplina) {
+	public final void setNomeDisciplina(String nomeDisciplina) {
 		this.nomeDisciplina = nomeDisciplina;
 	}
-	public double getNotaDisciplina() {
+	public final double getNotaDisciplina() {
 		return notaDisciplina;
 	}
-	public void setNotaDisciplina(double notaDisciplina) {
+	public final void setNotaDisciplina(double notaDisciplina) {
 		this.notaDisciplina = notaDisciplina;
 	}
-	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -52,5 +51,5 @@ public class Disciplina {
 	public String toString() {
 		return "Disciplina [nomeDisciplina=" + nomeDisciplina + ", notaDisciplina=" + notaDisciplina + "]";
 	}
-	
+
 }
