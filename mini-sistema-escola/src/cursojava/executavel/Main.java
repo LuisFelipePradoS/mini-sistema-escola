@@ -89,6 +89,9 @@ public class Main {
 							String rg = JOptionPane.showInputDialog("Informe o RG do novo aluno");
 							String endereco = JOptionPane.showInputDialog("Informe o endereco do novo aluno");
 							String telefone = JOptionPane.showInputDialog("Informe o telefone do novo aluno");
+							String raAluno = JOptionPane.showInputDialog("Informe o RA do novo aluno");
+							String dataMatricula = JOptionPane.showInputDialog("Informe a data de matrícula do novo aluno");
+							String serieMatriculada = JOptionPane.showInputDialog("Informe a série em que o novo aluno foi matriculado");
 							
 							Aluno novoAluno = new Aluno();
 							
@@ -98,6 +101,9 @@ public class Main {
 							novoAluno.setRg(rg);
 							novoAluno.setEndereco(endereco);
 							novoAluno.setTelefone(telefone);
+							novoAluno.setRaAluno(raAluno);
+							novoAluno.setDataMatricula(dataMatricula);
+							novoAluno.setSerieMatriculada(serieMatriculada);
 							
 							int qtdDisciplina = Integer.parseInt(JOptionPane.showInputDialog("Quantas disciplinas o novo aluno possui?"));
 							
