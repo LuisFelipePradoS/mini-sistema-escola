@@ -1,21 +1,25 @@
 package cursojava.executavel;
 
-import java.util.List;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import javax.swing.JOptionPane;
 
-import cursojava.classes.*;
+import cursojava.classes.Aluno;
+import cursojava.classes.Disciplina;
+import cursojava.classes.Secretario;
 import cursojava.constantes.StatusAluno;
+import cursojava.classesauxiliares.Autenticacao;
 
 public class Main {
 
 	public static void main(String[] args) {
 
-		String user = JOptionPane.showInputDialog("Digite seu usuário");
-		String password = JOptionPane.showInputDialog("Digite sua senha");
+		String usuario = JOptionPane.showInputDialog("Digite seu usuário");
+		String senha = JOptionPane.showInputDialog("Digite sua senha");
 		
-		if (user.equals("admin") && password.equals("admin")) {
+		//Validando o acesso do Secretario
+		if (new Autenticacao(new Secretario()).autenticar(usuario, senha)) {
 			
 			HashMap<String, List<Aluno>> maps = new HashMap<String, List<Aluno>>();
 			
