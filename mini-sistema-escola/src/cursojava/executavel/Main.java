@@ -29,8 +29,21 @@ public class Main {
 			
 			for (int i=1; i<=qtdAlunos; i++) {
 				
+				Aluno aluno = new Aluno();
+				
 				String nome = JOptionPane.showInputDialog("Informe o nome do aluno " + i);
-				String idade = JOptionPane.showInputDialog("Informe a idade do aluno " + i);
+				
+				try { 
+					
+					String idade = JOptionPane.showInputDialog("Informe a idade do aluno " + i);
+					aluno.setIdade(Integer.parseInt(idade));
+					
+				} catch (NumberFormatException e) {
+					
+					e.printStackTrace();
+					JOptionPane.showMessageDialog(null, "A idade deve ser um número e não pode conter espaços!");
+				}
+				
 				String cpf = JOptionPane.showInputDialog("Informe o CPF do aluno " + i + "\nEsta informação será necessário para SUBSTITUIR ou REMOVER o aluno do sistema!");
 				String rg = JOptionPane.showInputDialog("Informe o RG do aluno " + i + " \nEsta informação será necessário para SUBSTITUIR ou REMOVER o aluno do sistema!");
 				String endereco = JOptionPane.showInputDialog("Informe o endereço do aluno " + i);
@@ -39,10 +52,7 @@ public class Main {
 				String dataMatricula = JOptionPane.showInputDialog("Informe a data na qual o aluno " + i + " foi matriculado");
 				String serieMatriculada = JOptionPane.showInputDialog("Informe a série do aluno " + i);
 				
-				Aluno aluno = new Aluno();
-				
 				aluno.setNome(nome);
-				aluno.setIdade(Integer.parseInt(idade));
 				aluno.setCpf(cpf);
 				aluno.setRg(rg);
 				aluno.setEndereco(endereco);
