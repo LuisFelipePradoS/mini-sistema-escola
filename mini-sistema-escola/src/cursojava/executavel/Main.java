@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import javax.swing.JOptionPane;
-import java.lang.String;
 
 import cursojava.classes.Aluno;
 import cursojava.classes.Disciplina;
@@ -48,6 +47,10 @@ public class Main {
 					String idade = JOptionPane.showInputDialog("Informe a idade do aluno " + i);
 					aluno.setIdade(Integer.parseInt(idade));
 					
+				} catch (Exception e) {
+					
+					e.printStackTrace();
+					JOptionPane.showMessageDialog(null, "Ocorreu um erro ao processar a idade do aluno!");
 				}
 				
 				String cpf = JOptionPane.showInputDialog("Informe o CPF do aluno " + i + "\nEsta informação será necessário para SUBSTITUIR ou REMOVER o aluno do sistema!");
@@ -88,6 +91,11 @@ public class Main {
 						
 						String notaDisciplina = JOptionPane.showInputDialog("Informe a nota do aluno " + i + " na disciplina " + j);
 						disciplina.setNotaDisciplina(Double.parseDouble(notaDisciplina));
+						
+					} catch (Exception e) {
+						
+						e.printStackTrace();
+						JOptionPane.showMessageDialog(null, "Ocorreu um erro ao processar a nota!");
 					}
 					
 					aluno.getDisciplinas().add(disciplina);
@@ -132,6 +140,10 @@ public class Main {
 								String idade = JOptionPane.showInputDialog("Informe a idade do novo aluno");
 								novoAluno.setIdade(Integer.parseInt(idade));
 								
+							} catch (Exception e) {
+								
+								e.printStackTrace();
+								JOptionPane.showMessageDialog(null, "Ocorreu um erro ao processar a idade do aluno!");
 							}
 							
 							String cpf = JOptionPane.showInputDialog("Informe o CPF do novo aluno");
@@ -171,6 +183,11 @@ public class Main {
 									
 									String notaDisciplina = JOptionPane.showInputDialog("Informe a nota do novo aluno da disciplina " + posicaoD);
 									novaDisciplina.setNotaDisciplina(Double.parseDouble(notaDisciplina));
+									
+								} catch (Exception e) {
+									
+									e.printStackTrace();
+									JOptionPane.showMessageDialog(null, "Ocorreu um erro ao processar a nota!");
 								}
 								
 								novoAluno.getDisciplinas().add(novaDisciplina);
