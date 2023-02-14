@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import javax.swing.JOptionPane;
+import java.lang.String;
 
 import cursojava.classes.Aluno;
 import cursojava.classes.Disciplina;
@@ -32,6 +33,7 @@ public class Main {
 				Aluno aluno = new Aluno();
 				
 				String nome = JOptionPane.showInputDialog("Informe o nome do aluno " + i);
+				aluno.setNome(nome);
 				
 				try { 
 					
@@ -42,6 +44,10 @@ public class Main {
 					
 					e.printStackTrace();
 					JOptionPane.showMessageDialog(null, "A idade deve ser um número e não pode conter espaços!");
+					
+					String idade = JOptionPane.showInputDialog("Informe a idade do aluno " + i);
+					aluno.setIdade(Integer.parseInt(idade));
+					
 				}
 				
 				String cpf = JOptionPane.showInputDialog("Informe o CPF do aluno " + i + "\nEsta informação será necessário para SUBSTITUIR ou REMOVER o aluno do sistema!");
@@ -52,7 +58,6 @@ public class Main {
 				String dataMatricula = JOptionPane.showInputDialog("Informe a data na qual o aluno " + i + " foi matriculado");
 				String serieMatriculada = JOptionPane.showInputDialog("Informe a série do aluno " + i);
 				
-				aluno.setNome(nome);
 				aluno.setCpf(cpf);
 				aluno.setRg(rg);
 				aluno.setEndereco(endereco);
@@ -65,13 +70,25 @@ public class Main {
 				
 				for (int j=1; j<=qtdDisciplinas; j++) {
 					
-					String nomeDisciplina = JOptionPane.showInputDialog("Informe o nome da disciplina " + j);
-					String notaDisciplina = JOptionPane.showInputDialog("Informe a nota do aluno " + i + " na disciplina " + j);
-					
 					Disciplina disciplina = new Disciplina();
-					
+
+					String nomeDisciplina = JOptionPane.showInputDialog("Informe o nome da disciplina " + j);
 					disciplina.setNomeDisciplina(nomeDisciplina);
+					
+					try {
+				
+					String notaDisciplina = JOptionPane.showInputDialog("Informe a nota do aluno " + i + " na disciplina " + j);
 					disciplina.setNotaDisciplina(Double.parseDouble(notaDisciplina));
+					
+					} catch (NumberFormatException e) {
+						
+						e.printStackTrace();
+						
+						JOptionPane.showMessageDialog(null, "A nota deve ser um número!");
+						
+						String notaDisciplina = JOptionPane.showInputDialog("Informe a nota do aluno " + i + " na disciplina " + j);
+						disciplina.setNotaDisciplina(Double.parseDouble(notaDisciplina));
+					}
 					
 					aluno.getDisciplinas().add(disciplina);
 				}
@@ -97,8 +114,26 @@ public class Main {
 						
 						if (cpfRgRaSubstituir.equals(aluno.getCpf()) | cpfRgRaSubstituir.equals(aluno.getRg()) | cpfRgRaSubstituir.equals(aluno.getRaAluno())) {
 							
+							Aluno novoAluno = new Aluno();
+							
 							String nome = JOptionPane.showInputDialog("Informe o nome do novo aluno");
-							String idade = JOptionPane.showInputDialog("Informe a idade do novo aluno");
+							novoAluno.setNome(nome);
+							
+							try {
+								
+								String idade = JOptionPane.showInputDialog("Informe a idade do novo aluno");
+								novoAluno.setIdade(Integer.parseInt(idade));
+							
+							} catch (NumberFormatException e) {
+								
+								e.printStackTrace();
+								JOptionPane.showMessageDialog(null, "A idade deve ser um número e não pode conter espaços!");
+								
+								String idade = JOptionPane.showInputDialog("Informe a idade do novo aluno");
+								novoAluno.setIdade(Integer.parseInt(idade));
+								
+							}
+							
 							String cpf = JOptionPane.showInputDialog("Informe o CPF do novo aluno");
 							String rg = JOptionPane.showInputDialog("Informe o RG do novo aluno");
 							String endereco = JOptionPane.showInputDialog("Informe o endereco do novo aluno");
@@ -107,10 +142,6 @@ public class Main {
 							String dataMatricula = JOptionPane.showInputDialog("Informe a data de matrícula do novo aluno");
 							String serieMatriculada = JOptionPane.showInputDialog("Informe a série em que o novo aluno foi matriculado");
 							
-							Aluno novoAluno = new Aluno();
-							
-							novoAluno.setNome(nome);
-							novoAluno.setIdade(Integer.parseInt(idade));
 							novoAluno.setCpf(cpf);
 							novoAluno.setRg(rg);
 							novoAluno.setEndereco(endereco);
@@ -123,13 +154,24 @@ public class Main {
 							
 							for (int posicaoD=1; posicaoD<=qtdDisciplina; posicaoD++) {
 								
-								String nomeDisciplina = JOptionPane.showInputDialog("Informe o nome da disciplina " + posicaoD);
-								String notaDisciplina = JOptionPane.showInputDialog("Informe a nota do novo aluno da disciplina " + posicaoD);
-								
 								Disciplina novaDisciplina = new Disciplina();
 								
+								String nomeDisciplina = JOptionPane.showInputDialog("Informe o nome da disciplina " + posicaoD);
 								novaDisciplina.setNomeDisciplina(nomeDisciplina);
-								novaDisciplina.setNotaDisciplina(Double.parseDouble(notaDisciplina));
+								
+								try {
+									
+									String notaDisciplina = JOptionPane.showInputDialog("Informe a nota do novo aluno da disciplina " + posicaoD);
+									novaDisciplina.setNotaDisciplina(Double.parseDouble(notaDisciplina));
+								
+								} catch (NumberFormatException e) {
+									
+									e.printStackTrace();
+									JOptionPane.showMessageDialog(null, "A nota deve ser um número!");
+									
+									String notaDisciplina = JOptionPane.showInputDialog("Informe a nota do novo aluno da disciplina " + posicaoD);
+									novaDisciplina.setNotaDisciplina(Double.parseDouble(notaDisciplina));
+								}
 								
 								novoAluno.getDisciplinas().add(novaDisciplina);
 							}
