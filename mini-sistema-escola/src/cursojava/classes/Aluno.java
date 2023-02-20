@@ -44,13 +44,13 @@ public class Aluno extends Pessoa{
 				+ cpf + ", rg=" + rg + ", telefone=" + telefone + ", endereco=" + endereco + "]";
 	}
 	
-	public double calculaMedia() {
+	public double calculaMediaFinal() {
 		
 		double somaNotas = 0.0;
 		
 		for (Disciplina disciplina : disciplinas) {
 			
-			somaNotas += disciplina.getNotaDisciplina();
+			somaNotas += disciplina.calculaMediaDisciplina();
 		}
 		
 		return somaNotas / disciplinas.size();
@@ -58,7 +58,7 @@ public class Aluno extends Pessoa{
 	
 	public String resultado() {
 		
-		double mediaFinal = this.calculaMedia();
+		double mediaFinal = this.calculaMediaFinal();
 		
 		if (mediaFinal >= 5.0) {
 			

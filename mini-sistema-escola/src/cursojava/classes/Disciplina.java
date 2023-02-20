@@ -1,9 +1,11 @@
 package cursojava.classes;
 
+import java.util.Arrays;
+
 public class Disciplina {
 
 	private String nomeDisciplina;
-	private double notaDisciplina;
+	private double[] notasDisciplina = new double[4];
 	
 	public final String getNomeDisciplina() {
 		return nomeDisciplina;
@@ -11,20 +13,19 @@ public class Disciplina {
 	public final void setNomeDisciplina(String nomeDisciplina) {
 		this.nomeDisciplina = nomeDisciplina;
 	}
-	public final double getNotaDisciplina() {
-		return notaDisciplina;
+	public double[] getNotasDisciplina() {
+		return notasDisciplina;
 	}
-	public final void setNotaDisciplina(double notaDisciplina) {
-		this.notaDisciplina = notaDisciplina;
+	public void setNotasDisciplina(double[] notasDisciplina) {
+		this.notasDisciplina = notasDisciplina;
 	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((nomeDisciplina == null) ? 0 : nomeDisciplina.hashCode());
-		long temp;
-		temp = Double.doubleToLongBits(notaDisciplina);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + Arrays.hashCode(notasDisciplina);
 		return result;
 	}
 	
@@ -42,14 +43,26 @@ public class Disciplina {
 				return false;
 		} else if (!nomeDisciplina.equals(other.nomeDisciplina))
 			return false;
-		if (Double.doubleToLongBits(notaDisciplina) != Double.doubleToLongBits(other.notaDisciplina))
+		if (!Arrays.equals(notasDisciplina, other.notasDisciplina))
 			return false;
 		return true;
 	}
 	
 	@Override
 	public String toString() {
-		return "Disciplina [nomeDisciplina=" + nomeDisciplina + ", notaDisciplina=" + notaDisciplina + "]";
+		return "Disciplina [nomeDisciplina=" + nomeDisciplina + ", notasDisciplina=" + Arrays.toString(notasDisciplina)
+				+ "]";
 	}
-
+	
+	public double calculaMediaDisciplina() {
+		
+		double somaNotas = 0.0;
+		
+		for (int i=0; i<notasDisciplina.length; i++) {
+			
+			somaNotas += notasDisciplina[i];
+		}
+		
+		return somaNotas / 4;
+	}
 }

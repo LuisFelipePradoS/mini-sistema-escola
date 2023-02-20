@@ -80,8 +80,13 @@ public class Main {
 					
 					try {
 				
-					String notaDisciplina = JOptionPane.showInputDialog("Informe a nota do aluno " + i + " na disciplina " + j);
-					disciplina.setNotaDisciplina(Double.parseDouble(notaDisciplina));
+					double[] notas = new double[4];
+					
+					for (int pos=0; pos<notas.length; pos++) {
+						String nota = JOptionPane.showInputDialog("Informe a nota " + (pos+1));
+						notas[pos] = Double.parseDouble(nota);
+						disciplina.setNotasDisciplina(notas);
+					}
 					
 					} catch (NumberFormatException e) {
 						
@@ -89,8 +94,13 @@ public class Main {
 						
 						JOptionPane.showMessageDialog(null, "A nota deve ser um número!");
 						
-						String notaDisciplina = JOptionPane.showInputDialog("Informe a nota do aluno " + i + " na disciplina " + j);
-						disciplina.setNotaDisciplina(Double.parseDouble(notaDisciplina));
+						double[] notas = new double[4];
+						
+						for (int pos=0; pos<notas.length; pos++) {
+							String nota = JOptionPane.showInputDialog("Informe a nota " + (pos+1));
+							notas[pos] = Double.parseDouble(nota);
+							disciplina.setNotasDisciplina(notas);
+						}
 						
 					} catch (Exception e) {
 						
@@ -173,17 +183,26 @@ public class Main {
 								
 								try {
 									
-									String notaDisciplina = JOptionPane.showInputDialog("Informe a nota do novo aluno da disciplina " + posicaoD);
-									novaDisciplina.setNotaDisciplina(Double.parseDouble(notaDisciplina));
-								
+									double[] notas = new double[4];
+									
+									for (int pos=0; pos<notas.length; pos++) {
+										String nota = JOptionPane.showInputDialog("Informe a nota " + (pos+1) + " do novo aluno");
+										notas[pos] = Double.parseDouble(nota);
+										novaDisciplina.setNotasDisciplina(notas);
+									}
+									
 								} catch (NumberFormatException e) {
 									
 									e.printStackTrace();
 									JOptionPane.showMessageDialog(null, "A nota deve ser um número!");
 									
-									String notaDisciplina = JOptionPane.showInputDialog("Informe a nota do novo aluno da disciplina " + posicaoD);
-									novaDisciplina.setNotaDisciplina(Double.parseDouble(notaDisciplina));
+									double[] notas = new double[4];
 									
+									for (int pos=0; pos<notas.length; pos++) {
+										String nota = JOptionPane.showInputDialog("Informe a nota " + (pos+1) + " do novo aluno");
+										notas[pos] = Double.parseDouble(nota);
+										novaDisciplina.setNotasDisciplina(notas);
+									}
 								} catch (Exception e) {
 									
 									e.printStackTrace();
@@ -255,7 +274,7 @@ public class Main {
 			for (Aluno aluno : maps.get(StatusAluno.APROVADO)) {
 				
 				System.out.println(aluno.toString());
-				System.out.println("Média >>> " + aluno.calculaMedia());
+				System.out.println("Média >>> " + aluno.calculaMediaFinal());
 				System.out.println("\n");
 			}
 			
@@ -263,7 +282,7 @@ public class Main {
 			for (Aluno aluno : maps.get(StatusAluno.RECUPERACAO)) {
 				
 				System.out.println(aluno.toString());
-				System.out.println("Média >>> " + aluno.calculaMedia());
+				System.out.println("Média >>> " + aluno.calculaMediaFinal());
 				System.out.println("\n");
 			}
 			
@@ -271,7 +290,7 @@ public class Main {
 			for (Aluno aluno : maps.get(StatusAluno.REPROVADO)) {
 				
 				System.out.println(aluno.toString());
-				System.out.println("Média >>> " + aluno.calculaMedia());
+				System.out.println("Média >>> " + aluno.calculaMediaFinal());
 				System.out.println("\n");
 			}
 			
