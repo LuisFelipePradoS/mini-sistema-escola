@@ -12,22 +12,22 @@ public class Aluno extends Pessoa{
 	private String dataMatricula;
 	private List<Disciplina> disciplinas = new ArrayList<Disciplina>();
 	
-	public final String getRaAluno() {
+	public String getRaAluno() {
 		return raAluno;
 	}
-	public final void setRaAluno(String raAluno) {
+	public void setRaAluno(String raAluno) {
 		this.raAluno = raAluno;
 	}
-	public final String getSerieMatriculada() {
+	public String getSerieMatriculada() {
 		return serieMatriculada;
 	}
-	public final void setSerieMatriculada(String serieMatriculada) {
+	public void setSerieMatriculada(String serieMatriculada) {
 		this.serieMatriculada = serieMatriculada;
 	}
-	public final String getDataMatricula() {
+	public String getDataMatricula() {
 		return dataMatricula;
 	}
-	public final void setDataMatricula(String dataMatricula) {
+	public void setDataMatricula(String dataMatricula) {
 		this.dataMatricula = dataMatricula;
 	}
 	public List<Disciplina> getDisciplinas() {

@@ -7,10 +7,10 @@ public class Disciplina {
 	private String nomeDisciplina;
 	private double[] notasDisciplina = new double[4];
 	
-	public final String getNomeDisciplina() {
+	public String getNomeDisciplina() {
 		return nomeDisciplina;
 	}
-	public final void setNomeDisciplina(String nomeDisciplina) {
+	public void setNomeDisciplina(String nomeDisciplina) {
 		this.nomeDisciplina = nomeDisciplina;
 	}
 	public double[] getNotasDisciplina() {
