@@ -275,9 +275,6 @@ public class Main {
 				
 				System.out.println(aluno.toString());
 				System.out.println("Média >>> " + aluno.calculaMediaFinal());
-				aluno.identificarMaiorNota();
-				System.out.println("\n");
-				aluno.identificarMenorNota();
 				System.out.println("\n");
 			}
 			
@@ -286,9 +283,6 @@ public class Main {
 				
 				System.out.println(aluno.toString());
 				System.out.println("Média >>> " + aluno.calculaMediaFinal());
-				aluno.identificarMaiorNota();
-				System.out.println("\n");
-				aluno.identificarMenorNota();
 				System.out.println("\n");
 			}
 			
@@ -297,9 +291,6 @@ public class Main {
 				
 				System.out.println(aluno.toString());
 				System.out.println("Média >>> " + aluno.calculaMediaFinal());
-				aluno.identificarMenorNota();
-				System.out.println("\n");
-				aluno.identificarMaiorNota();
 				System.out.println("\n");
 			}
 			
